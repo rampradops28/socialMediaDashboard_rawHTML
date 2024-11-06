@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Social Media Analytics Dashboard</div>
+            <div class="menu">
+                <a href="home.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="data-report.html">Reports</a>
+                <a href="profile.html">Profile</a> 
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="overview">
+            <h2>Dashboard Overview</h2>
+            <p>Real-time engagement metrics and user insights</p>
+        </section>
+        <section class="analytics">
+            <div class="chart">
+                <h3>Engagement Over Time</h3>
+                <canvas id="engagementChart" width="400" height="200"></canvas>
+                <div class="data">
+                    <p>User ID (YouTube): <strong>user_yt123</strong></p>
+                    <p>Total Engagements: 1,234</p>
+                    <p>Average Engagement Rate: 5.6%</p>
+                </div>
+            </div>
+            <div class="chart">
+                <h3>Followers Growth</h3>
+                <canvas id="followersChart" width="400" height="200"></canvas>
+                <div class="data">
+                    <p>User ID (LinkedIn): <strong>user_ig456</strong></p>
+                    <p>Total Followers: 10,500</p>
+                    <p>Followers Gained This Month: 250</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // Sample data for the Engagement Over Time chart
+        const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+        const engagementChart = new Chart(engagementCtx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], // Example time labels
+                datasets: [{
+                    label: 'Engagements',
+                    data: [300, 400, 600, 700], // Sample engagement data
+                    backgroundColor: 'rgba(33, 150, 243, 0.2)',
+                    borderColor: '#2196f3',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Engagements'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Weeks'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Sample data for the Followers Growth chart
+        const followersCtx = document.getElementById('followersChart').getContext('2d');
+        const followersChart = new Chart(followersCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], // Example time labels
+                datasets: [{
+                    label: 'Followers Growth',
+                    data: [200, 150, 300, 250], // Sample follower growth data
+                    backgroundColor: '#2196f3',
+                    borderColor: '#1976d2',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Followers'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Weeks'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
